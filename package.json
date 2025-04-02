@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx @11ty/eleventy",
+    "deploy:yonis": "npm run build && gh-pages -d _site -r https://github.com/YonisEsquivel/cashfreed.git",
+    "deploy:cashfreed": "npm run build && gh-pages -d _site -b main -r https://github.com/cashfreed/cashfreed.github.io.git",
+    "deploy:all": "npm run deploy:yonis && npm run deploy:cashfreed"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.0.0",
+    "gh-pages": "^6.3.0"
   }
 }

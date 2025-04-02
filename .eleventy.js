@@ -94,6 +94,8 @@ module.exports = function(eleventyConfig) {
 
   // --- Configuración Principal ---
   return {
+    pathPrefix: "/cashfreed/",
+
     // Define los directorios de entrada, salida, includes y datos
     dir: {
       input: "src",

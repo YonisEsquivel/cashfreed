@@ -12,4 +12,4 @@ order: 2
     <div id="player-primeros-pasos" class="youtube-player" data-video-id="CCj4jSmqOM4"></div>
 </div>
 
-<script src="/assets/js/iframe-loader.js"></script>
+<script src="{{ '/assets/js/iframe-loader.js' | url }}"></script>
