@@ -28,7 +28,7 @@
           - name: Deploy to YonisEsquivel/cashfreed (gh-pages)
             uses: peaceiris/actions-gh-pages@v3
             with:
-              github_token: ${{ secrets.GH_TOKEN_YONIS }}
+              personal_token: ${{ secrets.GH_TOKEN_YONIS }}
               publish_dir: ./_site
               publish_branch: gh-pages # Rama destino para tu cuenta
               user_name: 'github-actions[bot]'
@@ -39,7 +39,7 @@
           - name: Deploy to cashfreed/cashfreed.github.io (main)
             uses: peaceiris/actions-gh-pages@v3
             with:
-              github_token: ${{ secrets.GH_TOKEN_CASHFREED }}
+              personal_token: ${{ secrets.GH_TOKEN_CASHFREED }}
               publish_dir: ./_site
               publish_branch: main # Rama destino para la cuenta cashfreed
               external_repository: cashfreed/cashfreed.github.io # Repositorio externo
