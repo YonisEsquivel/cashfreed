@@ -405,7 +405,28 @@ main h3 { font-size: 1.6rem; }
     .module-card {
       padding: 20px;
     }
-  }
+
+    .lesson-content h1 {
+        font-size: 1.4rem;
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
+        padding: 0.3rem 0;
+    }
+
+    .lesson-content h2 {
+        font-size: 1.2rem;
+        line-height: 1.2;
+        margin: 0.8rem 0 0.4rem;
+        padding: 0.3rem 0;
+    }
+
+    .lesson-content h3 {
+        font-size: 1.1rem;
+        line-height: 1.2;
+        margin: 0.6rem 0 0.3rem;
+        padding: 0.2rem 0;
+    }
+}
 
 /* --- Media Queries para Diseño Responsivo --- */
 
