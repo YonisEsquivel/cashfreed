@@ -454,7 +454,7 @@ main h3 { font-size: 1.6rem; }
       font-size: 1rem;
     }
 
-    .modules-grid {
+.modules-grid {
         gap: 1.5rem; /* Menos espacio entre tarjetas */
         margin: 2rem 0; /* Ajustar márgenes */
     }
