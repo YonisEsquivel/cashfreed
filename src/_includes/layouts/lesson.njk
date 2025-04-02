@@ -1,0 +1,40 @@
+---
+layout: layouts/base.njk # Este layout hereda del layout base
+---
+
+<div class="lesson-layout">
+    <aside class="course-sidebar">
+        <h2>Índice del Curso</h2>
+        {% include "partials/course-nav.njk" %} {# Incluimos la navegación del curso #}
+    </aside>
+
+    <article class="lesson-content">
+        {# Título de la lección (del front matter del archivo .md) #}
+        <h2>{{ title }}</h2>
+
+        {# Contenido de la lección (del archivo .md) #}
+        {{ content | safe }}
+
+        {# --- Bloque de Navegación Anterior/Siguiente --- #}
+        {# Encontrar el índice de la lección actual comparando URLs #}
+        {% set currentLessonIndex = -1 %} {# Inicializar a -1 (no encontrado) #}
+        {% for lesson in collections.lessons %}
+            {% if lesson.url == page.url %}
+                {% set currentLessonIndex = loop.index0 %} {# loop.index0 es el índice basado en 0 #}
+            {% endif %}
+        {% endfor %}
+
+        {# Generar los botones solo si encontramos la lección actual #}
+        <div class="btn-container">
+            {% if currentLessonIndex > 0 %} {# Si no es la primera lección #}
+                {% set prevLesson = collections.lessons[currentLessonIndex - 1] %}
+                <a href="{{ prevLesson.url | url }}" class="btn-prev">Lección Anterior</a>
+            {% endif %}
+            {% if currentLessonIndex != -1 and currentLessonIndex < collections.lessons | length - 1 %} {# Si no es la última lección #}
+                {% set nextLesson = collections.lessons[currentLessonIndex + 1] %}
+                <a href="{{ nextLesson.url | url }}" class="btn-next">Siguiente Lección</a>
+            {% endif %}
+        </div>
+        {# --- Fin Bloque de Navegación --- #}
+    </article>
+</div>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or siteData.title }}</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <div class="site-wrapper"> <!-- Nuevo contenedor envolvente -->
+        {% include "partials/header.njk" %}
+
+        <main>
+            {{ content | safe }}
+        </main>
+
+        {% include "partials/footer.njk" %}
+        {% include "partials/back-to-top.njk" %}
+    </div>
+</body>
+</html>

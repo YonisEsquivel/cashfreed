@@ -1,0 +1,13 @@
+<header class="site-header">
+    <h1><a href="/">{{ siteData.title or "Mi Academia" }}</a></h1>
+    {# Podríamos añadir un menú principal aquí si fuera necesario #}
+    <nav>
+        <a href="/">Inicio</a>
+        {# Añadir enlace al curso #}
+        {% if collections.lessons.length > 0 %}
+          {% set firstLesson = collections.lessons[0] %}
+          <a href="{{ firstLesson.url | url }}">Curso</a>
+        {% endif %}
+        {# Más enlaces principales si los hubiera #}
+    </nav>
+</header>

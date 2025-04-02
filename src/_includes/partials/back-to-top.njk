@@ -1,0 +1,19 @@
+<button id="back-to-top" class="back-to-top">Ir al Top</button>
+
+<script>
+    // Mostrar el botón cuando el usuario hace scroll hacia abajo
+    window.onscroll = function() {
+        const button = document.getElementById('back-to-top');
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    };
+
+    // Función para llevar al usuario al inicio de la página
+    document.getElementById('back-to-top').onclick = function() {
+        document.body.scrollTop = 0; // Para Safari
+        document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+    };
+</script> 

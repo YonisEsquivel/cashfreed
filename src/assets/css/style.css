@@ -1,0 +1,781 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+:root {
+  /* Paleta de colores */
+  --primary-color: #3498db;   /* Azul claro */
+  --secondary-color: #2c3e50; /* Azul oscuro/gris */
+  --accent-color: #2ecc71;   /* Verde (Nuevo) */
+  --light-gray: #f8f9fa;     /* Gris muy claro */
+  --medium-gray: #e9ecef;    /* Gris claro */
+  --text-color: #333;         /* Negro/Gris oscuro para texto */
+  --bg-color: #ffffff;        /* Blanco */
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.7;
+  color: var(--text-color);
+  background-color: #f0f0f0; /* Fondo gris muy claro para fuera del wrapper */
+  margin: 0;
+}
+
+    .site-wrapper {
+      max-width: 1200px;
+  margin: 2rem auto; /* Añadir margen vertical al wrapper */
+  padding: 0; /* Quitamos padding aquí, lo gestionamos dentro */
+  background-color: var(--bg-color);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Sombra un poco más notable */
+  overflow: hidden;
+  border-radius: 8px; /* Bordes redondeados al contenedor principal */
+  /* Borde de diagnóstico (comentado) */
+  /* border: 2px solid purple; */
+  /* background-color: rgba(255,0,0,0.05) !important; */ /* Eliminado */
+}
+
+/* Header y Footer necesitarán padding ahora que el wrapper no lo tiene */
+.site-header {
+    padding: 0.4rem 1rem; /* Reducido padding vertical */
+    border-bottom: 1px solid var(--medium-gray); /* Borde más delgado */
+    background-color: var(--bg-color);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* Sombra más ligera */
+    /* text-align: center; */ /* Descomenta si quieres centrar también el H1 */
+}
+
+.site-header h1 {
+    font-size: 1.4rem; /* Reducido tamaño de fuente */
+    margin: 0.2rem 0; /* Reducido margen vertical H1 */
+    text-align: center; /* Centrar el H1 explícitamente */
+}
+
+.site-header h1 a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 700;
+    display: inline-block; /* Permite que el enlace se comporte como bloque pero en línea */
+}
+
+/* Contenedor Nav: Reducir espacio */
+.site-header nav {
+  text-align: center;
+  margin-top: 0.3rem; /* Reducido espacio sobre nav */
+  padding-bottom: 0.3rem; /* Asegurar algo de espacio abajo */
+}
+
+/* Enlaces Nav: Estilo "Pill" */
+.site-header nav a {
+  color: var(--secondary-color); /* Color secundario para más contraste */
+  text-decoration: none;
+  padding: 0.4rem 1rem; /* Padding para forma de píldora */
+  margin: 0 0.2rem; /* Margen entre píldoras */
+  border-radius: 50px; /* Bordes redondeados para forma de píldora */
+  font-weight: 500;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  display: inline-block; /* Necesario para padding/border-radius */
+  vertical-align: middle; /* Alineación vertical */
+}
+
+/* Enlaces Nav: Hover/Focus */
+.site-header nav a:hover,
+.site-header nav a:focus {
+  color: white; /* Texto blanco sobre fondo */
+  background-color: var(--primary-color); /* Fondo de color primario */
+  outline: none;
+}
+
+/* Enlaces Nav: Activo (Página Actual) */
+.site-header nav a[aria-current="page"] {
+  font-weight: 700; /* Más grueso */
+  color: white;
+  background-color: var(--primary-color);
+}
+
+.site-header hr { display: none; }
+
+.site-footer {
+    padding: 1.5rem 2rem; /* Padding horizontal añadido */
+    border-top: 1px solid var(--medium-gray); /* Borde más claro */
+    margin-top: 0; /* Quitamos margen superior */
+    color: #777;
+      text-align: center;
+    font-size: 0.9rem;
+    background-color: var(--light-gray); /* Fondo ligeramente distinto al contenido */
+    border-bottom-left-radius: 8px; /* Redondear esquinas inferiores */
+    border-bottom-right-radius: 8px;
+}
+.site-footer hr { display: none; }
+
+
+/* --- Contenido principal --- */
+main {
+    padding: 2rem; /* Restauramos padding */
+    /* Borde de diagnóstico (comentado) */
+    /* border: 2px solid teal; */
+    /* background-color: rgba(0,0,255,0.05) !important; */ /* Eliminado */
+}
+
+
+/* Estilos globales para encabezados dentro del main */
+main h1, main h2, main h3, main h4, main h5, main h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-top: 2rem; /* Más espacio antes de los títulos */
+      margin-bottom: 1rem;
+}
+main h1:first-child, main h2:first-child, main h3:first-child {
+    margin-top: 0; /* El primer título no necesita margen superior */
+}
+main h1 { font-size: 2.5rem; } /* Ajustar tamaños si es necesario */
+main h2 { font-size: 2rem; }
+main h3 { font-size: 1.6rem; }
+
+
+/* --- Estilos Hero (Página Inicio) --- */
+.hero {
+    text-align: center;
+    padding: 6rem 3rem; /* Aumentar padding para más espacio */
+    background: linear-gradient(135deg, #2c3e50, #3498db); /* Gradiente más sutil */
+    color: white;
+    border-radius: 12px;
+    margin: 0; /* Lo ponemos dentro del padding de main */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+.hero h1 {
+    font-size: 3.5rem; /* Un poco más grande */
+    margin-top: 0;
+    margin-bottom: 1rem; /* Más espacio bajo el h1 */
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Sombra más definida */
+    font-family: 'Lato', sans-serif; /* Asegurar fuente de encabezado */
+    font-weight: 700;
+}
+.hero p {
+    font-size: 1.5rem; /* Un poco más grande */
+    opacity: 0.9; /* Ligeramente menos transparente */
+    max-width: 700px;
+    margin: 0 auto; /* Centrar texto */
+    line-height: 1.8; /* Ajustar altura de línea */
+}
+
+
+/* --- Layout de Lección --- */
+.lesson-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem; /* Aumentar separación entre sidebar y content */
+  }
+  
+  .course-sidebar {
+    width: 100%;
+    flex-shrink: 0;
+    background-color: var(--light-gray);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Añadir sombra */
+    height: fit-content;
+}
+@media (min-width: 992px) { /* Aumentar breakpoint para layout de 2 columnas */
+    .course-sidebar {
+        width: 320px; /* Un poco más ancho */
+    }
+}
+
+.course-sidebar h2 {
+    font-size: 1.4rem; /* Título "Índice del Curso" */
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--medium-gray);
+    padding-bottom: 0.75rem;
+}
+
+  .course-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .course-navigation .module-item {
+    margin-bottom: 1.5rem;
+  }
+  .course-navigation .module-item strong {
+    font-size: 1.2em; /* Título del Módulo más grande */
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+}
+  .course-navigation .lesson-list {
+    padding-left: 0; /* Sin padding izquierdo general */
+    /* border-left: 3px solid var(--medium-gray); */ /* Quitar borde general */
+    margin-left: 0; /* Sin margen */
+    margin-top: 0.5rem;
+}
+  .course-navigation .lesson-item {
+    margin-bottom: 0.25rem; /* Menos espacio entre lecciones */
+  }
+  .course-navigation .lesson-item a {
+    text-decoration: none;
+    color: var(--primary-color);
+    display: block;
+    padding: 10px 20px; /* Más padding */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease;
+    border-left: 4px solid transparent; /* Borde izquierdo transparente por defecto */
+    font-size: 1rem;
+}
+  .course-navigation .lesson-item a:hover {
+    text-decoration: none;
+    color: var(--primary-color);
+    background-color: rgba(52, 152, 219, 0.15); /* Fondo azul muy claro en hover */
+    border-left-color: var(--primary-color); /* Borde visible en hover */
+}
+.course-navigation .lesson-item a[aria-current="page"] { /* Lección activa */
+    font-weight: bold;
+    color: var(--secondary-color); /* Color oscuro */
+    background-color: rgba(44, 62, 80, 0.1); /* Fondo oscuro muy claro */
+    border-left-color: var(--secondary-color); /* Borde oscuro */
+}
+.course-navigation .lesson-item a[aria-current="page"]:hover {
+    background-color: rgba(44, 62, 80, 0.15); /* Oscurecer un poco en hover */
+}
+
+
+.lesson-content {
+    flex-grow: 1;
+    min-width: 0;
+    overflow-wrap: break-word;
+    /* overflow-x: hidden; */ /* Ya no debería ser necesario */
+}
+.lesson-content h2:first-child {
+    margin-top: 0;
+}
+
+/* Mejorar estilo de párrafos y listas en contenido */
+.lesson-content p {
+    margin-bottom: 1.5rem; /* Más espacio entre párrafos */
+    max-width: 75ch; /* Limitar ancho de línea para legibilidad */
+}
+.lesson-content ul,
+.lesson-content ol {
+    padding-left: 2em; /* Indentación estándar */
+    margin-bottom: 1.5rem;
+}
+.lesson-content li {
+    margin-bottom: 0.75rem; /* Espacio entre items de lista */
+}
+.lesson-content strong {
+    color: var(--secondary-color); /* Destacar texto en negrita */
+}
+
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin: 40px 0;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+  padding: 20px; /* Aumentar padding para más espacio */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.module-card {
+  background: linear-gradient(145deg, #ffffff, #f5f8ff);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  padding: 25px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 120, 212, 0.1);
+}
+
+.module-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 120, 212, 0.3);
+}
+
+.module-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #007BFF, #00c6ff);
+  border-radius: 12px 0 0 12px;
+}
+
+.module-card h3 {
+  color: #1a3b5d;
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 600;
+}
+
+.module-card h3:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(to right, #007BFF, #00c6ff);
+  border-radius: 3px;
+}
+
+.module-card ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.module-card li {
+  padding: 3px 0 3px 28px; /* Reducir padding vertical significativamente */
+  margin-bottom: 1px;     /* Margen mínimo */
+  position: relative;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.module-card li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.module-card li:not(:last-child) {
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+}
+
+
+/* --- Botón de Inicio (Home) --- */
+.button-container {
+  text-align: center;
+  margin-top: 1rem; /* Reducir espacio sobre el botón */
+  margin-bottom: 3rem; /* Mantener espacio debajo */
+}
+.button-start {
+  display: inline-block;
+  padding: 1rem 2.2rem; /* Ajustar padding */
+  background: var(--accent-color);
+  color: white !important;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.2rem; /* Tamaño ajustado */
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 18px rgba(231,76,60,0.3); /* Sombra ajustada */
+  border: none;
+}
+.button-start:hover,
+.button-start:focus {
+  background: #c0392b;
+  transform: scale(1.05) translateY(-2px); /* Añadir pequeño desplazamiento vertical */
+  box-shadow: 0 8px 25px rgba(192, 57, 43, 0.45); /* Sombra más pronunciada */
+  outline: none;
+}
+
+/* Eliminar reglas de depuración */
+/* .lesson-layout { border: 2px dotted red; } */
+/* .course-sidebar { border: 2px dotted blue; } */
+/* .lesson-content { border: 2px dotted green; } */
+/* .lesson-content p { border: 1px dashed orange; } */
+
+/* Aseguramos que los párrafos tengan max-width y ajuste (ya integrado arriba) */
+/* .lesson-content p {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    hyphens: auto;
+} */
+
+/* Ajuste para pantallas móviles */
+@media (max-width: 768px) {
+    .modules-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .module-card {
+      padding: 20px;
+    }
+  }
+
+/* --- Media Queries para Diseño Responsivo --- */
+
+/* Estilos para Tablets pequeñas y Móviles (hasta 767px) */
+@media (max-width: 767px) {
+    /* Header más compacto y centrado */
+    .site-header {
+        padding: 0.6rem 1rem; /* Ajustar padding vertical */
+        flex-direction: column; /* Apilar verticalmente */
+        align-items: center; /* Centrar elementos */
+        gap: 0.2rem; /* Reducir espacio entre h1 y nav */
+    }
+
+    .site-header h1 {
+        font-size: 1.3rem; /* Tamaño adecuado */
+        text-align: center; /* Asegurar centrado */
+        margin-bottom: 0.2rem; /* Menos espacio debajo del h1 */
+    }
+
+    .site-header nav {
+        margin-top: 0; /* Quitar margen superior, el gap del header se encarga */
+    }
+
+    /* Menú más ajustado */
+    .site-header nav a {
+        font-size: 0.9rem;
+        padding: 0.35rem 0.8rem; /* Padding ligeramente reducido */
+        margin: 0.1rem 0.2rem; /* Ajustar margen si es necesario */
+    }
+
+    /* Hero más legible */
+    .hero {
+        padding: 2.5rem 1rem; /* Reducir padding vertical */
+        /* margin y border-radius 0 ya están aplicados */
+    }
+    .hero h1 {
+        font-size: 2rem; /* Tamaño legible pero no enorme */
+        line-height: 1.3;
+    }
+    .hero p {
+        font-size: 1.05rem; /* Tamaño de párrafo */
+    }
+    .hero-button {
+      margin-top: 1.5rem; /* Menos espacio sobre el botón */
+      padding: 0.7rem 1.5rem; /* Botón ligeramente más pequeño */
+      font-size: 1rem;
+    }
+
+    .modules-grid {
+        gap: 1.5rem; /* Menos espacio entre tarjetas */
+        margin: 2rem 0; /* Ajustar márgenes */
+    }
+    .module-card {
+        padding: 1.5rem; /* Menos padding interno */
+        border-top-width: 3px; /* Borde superior más delgado */
+    }
+    .module-card h3 {
+        font-size: 1.3rem; /* Título de tarjeta más pequeño */
+        margin-bottom: 1rem;
+    }
+    .module-card li {
+        font-size: 0.95rem; /* Texto de lista más pequeño */
+    }
+
+    .button-container {
+        margin-top: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+    .button-start {
+        padding: 0.8rem 1.8rem; /* Botón más pequeño */
+        font-size: 1.1rem; /* Fuente del botón más pequeña */
+    }
+
+
+    /* --- Lección Específico --- */
+    .lesson-layout {
+        gap: 1.5rem; /* Menos espacio entre sidebar y content cuando se apilan */
+    }
+
+    .course-sidebar {
+        padding: 1rem; /* Menos padding en sidebar */
+        /* width: 100% ya está por defecto */
+    }
+    .course-sidebar h2 {
+        font-size: 1.2rem; /* Título "Índice" más pequeño */
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+    .course-navigation .module-item strong {
+        font-size: 1.05em; /* Título de módulo más pequeño */
+    }
+    .course-navigation .lesson-item a {
+        padding: 6px 10px; /* Menos padding en enlaces */
+        font-size: 0.9rem; /* Fuente de lección más pequeña */
+    }
+
+    .lesson-content p {
+        margin-bottom: 1rem; /* Menos espacio entre párrafos */
+        max-width: none; /* Permitir que use todo el ancho en móvil */
+    }
+    .lesson-content ul, .lesson-content ol {
+        padding-left: 1.5em; /* Menos indentación */
+        margin-bottom: 1rem;
+    }
+    .lesson-content li {
+  margin-bottom: 0.5rem;
+}
+
+    /* Footer más compacto */
+    .site-footer {
+        padding: 1rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    /* Aseguramos que en móvil el grid funcione bien (usualmente se apila por defecto con auto-fit) */
+     .modules-grid {
+        /* Podemos dejar que auto-fit haga su trabajo, usualmente resultará en una columna */
+        /* O forzar una columna explícitamente si es necesario */
+         grid-template-columns: 1fr;
+         gap: 1.5rem; /* Ajustar espacio en móvil */
+     }
+
+    /* La regla flex-basis: 100% en .module-card ya no aplica */
+    /* .module-card { flex-basis: 100%; } */
+}
+
+@media (max-width: 375px) {
+
+    /* ... (Reglas para pantallas muy pequeñas si existen) ... */
+
+} /* Fin de @media (max-width: 375px) */
+
+.modules-grid {
+  background-color: rgba(0,255,0,0.05) !important;
+  padding: 5px !important; /* Añadir padding para ver el borde claramente */
+}
+.module-card {
+  background-color: rgba(255,165,0,0.1) !important;
+  /* Asegurar que no haya márgenes extraños */
+  margin: 0 !important;
+} 
+@media (max-width: 760px) {
+    main {
+      padding: 1rem !important; /* Mantener padding reducido en móvil */
+    }
+     .modules-grid {
+         grid-template-columns: 1fr !important; /* Forzar una columna */
+         gap: 1.5rem; /* Ajustar espacio en móvil */
+     }
+     .module-card {
+        padding: 1.5rem; /* Menos padding en móvil */
+        border-radius: 10px; /* Redondeo ligeramente menor */
+     }
+     .module-card h3 {
+        font-size: 1.2rem;
+     }
+     .module-card li {
+        font-size: 0.95rem;
+     }
+
+    /* ... (Otras reglas móviles) ... */
+
+}
+
+/* --- Animaciones Sutiles --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Aplicar animación de entrada a los elementos principales */
+.hero, .lesson-layout, .module-card {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* --- Consistencia de Estilo --- */
+
+/* Asegurar que todos los botones tengan un estilo consistente */
+button, .button-start {
+    font-family: 'Lato', sans-serif;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, .button-start:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustar sombras y bordes para consistencia */
+.module-card, .course-sidebar {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+/* Mejorar la legibilidad de los textos en móviles */
+@media (max-width: 767px) {
+    body {
+        font-size: 0.95rem;
+    }
+    .hero h1, .lesson-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* --- Botón para volver al inicio --- */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #0056b3;
+}
+
+/* --- Estilos para los botones de navegación --- */
+.btn-prev, .btn-next {
+    display: inline-block;
+    margin: 10px 15px; /* Aumentar margen para más separación */
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-prev:hover, .btn-next:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.btn-container {
+    margin-top: 20px; /* Añadir margen superior para separación */
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.video-container {
+    position: relative;
+    width: 100%; /* Ocupa todo el ancho del contenedor padre */
+    padding-top: 56.25%; /* Relación de aspecto 16:9 */
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 10;
+    font-size: 20px;
+    color: #000;
+}
+
+.spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top: 8px solid var(--primary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.section-title {
+  text-align: center;
+  margin-top: 2em; /* Añadir espacio arriba */
+  margin-bottom: 1.5em; /* Añadir espacio abajo antes de las tarjetas */
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 2rem; /* Espacio sobre el botón */
+  padding: 0.8rem 1.8rem;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+  color: var(--secondary-color); /* Texto oscuro para contraste */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Borde sutil */
+  border-radius: 50px; /* Bordes redondeados */
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.hero-button:hover,
+.hero-button:focus {
+  background-color: white; /* Fondo blanco sólido en hover */
+  color: var(--primary-color); /* Cambiar color de texto a primario */
+  transform: translateY(-3px) scale(1.03); /* Efecto de elevación */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+  outline: none;
+}
+
+/* --- Estilos Enlaces Sociales Footer --- */
+.social-links {
+  margin-top: 1rem; /* Espacio sobre los iconos */
+}
+
+.social-icon {
+  display: inline-flex; /* Mantener flex para alinear icono y texto */
+  align-items: center; /* Alinear verticalmente */
+  gap: 0.5em; /* Espacio entre el icono y el texto */
+  margin: 0 0.75rem; /* Margen entre enlaces */
+  padding: 0.4rem 0.8rem; /* Padding alrededor */
+  color: var(--secondary-color);
+  text-decoration: none;
+  border-radius: 6px; /* Bordes redondeados normales */
+  transition: all 0.3s ease;
+}
+
+.social-icon svg {
+  width: 18px; /* Icono ligeramente más pequeño */
+  height: 18px;
+  fill: currentColor; 
+  flex-shrink: 0; /* Evitar que el icono se encoja */
+}
+
+.social-icon:hover,
+.social-icon:focus {
+  color: white;
+  transform: translateY(-2px); /* Mantener solo un ligero translate */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Añadir sombra en hover */
+  outline: none;
+}
+
+/* Colores específicos por red (aplicados al fondo del enlace) */
+.social-icon.youtube:hover,
+.social-icon.youtube:focus {
+  background-color: #FF0000; /* Rojo YouTube */
+}
+
+.social-icon.facebook:hover,
+.social-icon.facebook:focus {
+  background-color: #1877F2; /* Azul Facebook */
+}
