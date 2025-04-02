@@ -1,6 +1,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
+const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || "/";
+
 module.exports = function(eleventyConfig) {
 
   // --- Shortcodes ---
@@ -94,7 +96,7 @@ module.exports = function(eleventyConfig) {
 
   // --- Configuración Principal ---
   return {
-    pathPrefix: "/cashfreed/",
+    pathPrefix: pathPrefix,
 
     // Define los directorios de entrada, salida, includes y datos
     dir: {

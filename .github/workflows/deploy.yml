@@ -22,8 +22,9 @@
           - name: Install dependencies
             run: npm ci # Instala las dependencias desde package-lock.json (más rápido y seguro)
 
-          - name: Build Eleventy site
-            run: npm run build # Ejecuta el script de build
+          # Despliegue para YonisEsquivel
+          - name: Build for YonisEsquivel
+            run: npm run build:yonis
 
           - name: Deploy to YonisEsquivel/cashfreed (gh-pages)
             uses: peaceiris/actions-gh-pages@v3
@@ -34,7 +35,11 @@
               user_name: 'github-actions[bot]'
               user_email: 'github-actions[bot]@users.noreply.github.com'
               commit_message: 'Deploy to YonisEsquivel gh-pages [skip ci]'
-              # No se especifica 'external_repository' ya que es el mismo repo
+              keep_files: false # Limpiar la rama antes de desplegar
+
+          # Despliegue para cashfreed
+          - name: Build for cashfreed
+            run: npm run build:cashfreed
 
           - name: Deploy to cashfreed/cashfreed.github.io (main)
             uses: peaceiris/actions-gh-pages@v3
@@ -46,5 +51,6 @@
               user_name: 'github-actions[bot]'
               user_email: 'github-actions[bot]@users.noreply.github.com'
               commit_message: 'Deploy to cashfreed main [skip ci]'
+              keep_files: false # Limpiar la rama antes de desplegar
               # Añadir '--force' si es necesario para sobrescribir la rama main
               # force_orphan: true # Opcional: si quieres que cada deploy sea limpio

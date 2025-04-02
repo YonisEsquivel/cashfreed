@@ -4,10 +4,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx @11ty/eleventy",
-    "deploy:yonis": "npm run build && gh-pages -d _site -r https://github.com/YonisEsquivel/cashfreed.git",
-    "deploy:cashfreed": "npm run build && gh-pages -d _site -b main -r https://github.com/cashfreed/cashfreed.github.io.git",
-    "deploy:all": "npm run deploy:yonis && npm run deploy:cashfreed"
+    "build:yonis": "cross-env ELEVENTY_PATH_PREFIX=/cashfreed/ npx @11ty/eleventy",
+    "build:cashfreed": "cross-env ELEVENTY_PATH_PREFIX=/ npx @11ty/eleventy",
+    "deploy:yonis": "npm run build:yonis && gh-pages -d _site -r https://github.com/YonisEsquivel/cashfreed.git",
+    "deploy:cashfreed": "npm run build:cashfreed && gh-pages -d _site -b main -r https://github.com/cashfreed/cashfreed.github.io.git --dotfiles",
+    "deploy:all": "echo \"Deploy All not supported with this setup\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
   "description": "",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "cross-env": "^7.0.3",
     "gh-pages": "^6.3.0"
   }
 }
